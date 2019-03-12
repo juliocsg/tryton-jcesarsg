@@ -1,359 +1,586 @@
-* Use separate XML parser in Views
-* Use between numbers in filter box
-* Rename email and calendar file
-* Use markup for styling
-* Replace ImageMenuItem by MenuItem
-* Replace ComboBoxEntry by ComboBox or ComboBoxText
-* Replace GObject.idle_add by GLibe.idle_add
-* Remove positional arguments for PyGObject
-* Remove pygtkcompat
-* Implement Reference cell with Selection and Many2One cells
-* Replace CellRendererBinary with clickable pixbuf cells
-* Allow cell to have multiple renderers
-* Fill 'to' with 'from' value on filter box
-* Add tab domain in URL
-* Use Popover for search filter
-* Display version on login dialog
-* Use tab key for tab navigation
-* Use ShortcutsWindow
-* Improve default size of widgets and dialog
-* Use record and field properties of widget instead of method arguments
-* Reduce offset when no search result
-* Ensure URL scheme of bus (issue7792)
-* Add drag & drop support on binary widget
-
 Version 5.0.0 - 2018-10-01
 * Bug fixes (see mercurial logs for details)
-* Use dropdown for attachment
-* Apply factor on domain parser
-* Use tab name in CSV Export/Import
-* Add bus management
-* Use CSS to style label
+* Allow non translatable reports
+* Replace hard coded 'state' by '_transition_state' in copy
+* Support dotted notation in copy default
+* Allow callable in copy default
+* Add bus system
+* Allow to set any default configuration value from environment
+* Clear existing session when password is changed
+* Manage session with max_age and timeout
+* Use passlib to hash and update password
+* Remove unique constraint on attachment name
 * New icons
-* Support timestamp field
+* Add pyson TimeDelta
+* Remove button if it is not allowed to access some of its dependant fields
 * Add support for Python 3.7
-* Use GtkApplication
-* Validate dictionary items
-* Add (i)like support to domain inversion
-* Use Python 3
-* Improve loading strategy by using views
-* Use non conflicting keyboard shortcuts in sync with sao
-* Use the context to get the suffix of window name
-* Call on_change methods after setting default dtstart on calendar view
+* Add transactional queue and workers
+* Add __table_handler__ to ModelSQL
+* Support partial index
+* Allow to use SQL expression for index action
+* Add cache clean timeout configuration
+* Implicit conversion to boolean in PYSON statement
+* Add domain to dictionary schema
+* Fill main language in ir.configuration at database initialization
+* Remove support for Python 2.7
+* Check Rule also after modification
+* Check Rule after indirect fields
+* Allow to define view id in switch client action
+* Do not validate Function fields even with setter
+* Simplify the creation of dependencies graph
+* Make depends on methods generic to any method
+* Add width/height attribute to notebook
+* Allow to call set_lang with None and language instance
+* Add hostname configuration to list database
+* Add tree mixin
+* Rename "install-dependences" into "activate-dependencies"
+* Use recursive common table expression for child_of/parent_of operators
+* Add sql_cast on Field
 
 Version 4.8.0 - 2018-04-23
 * Bug fixes (see mercurial logs for details)
-* Manage active field on search widget
-* Reset record to its original state when discarding the popup window
-* Add support of expand attribute on group tag
-* Add the context model name in the screen context
-* Use limit to expand tree
+* Add index method to order field set calls
+* Add deactivable mixin
+* Ensure active field is present on tree view
+* Manage depends xml attribute on field tag
+* Add expand attribute on group tag
+* Add depends on Pool.register
+* Add Exclude constraint
+* Allow to perform unaccented searches on Char fields
+* Always raise exception in table handler
+* Simplify API for Session: new, remove, check and reset
+* Ensure that all buttons are registered in ir.model.button
+* Make trytond-admin ask for admin email
+* Add option to set admin email with trytond-admin
+* Add option to reset admin password with trytond-admin
+* Add reset password button
+* Add depends on Button
+* Add ModelData.has_model cache for ModelStorage.check_xml_record
+* Limit authentication attempt per IP network
+* Manage 'X-Forwarded' headers from proxies
+* Add '_request' attribute to Transaction context
+* Delete translations on deletion only when model has translatable field
+* Remove MySQL backend
 * Add keyword attribute to button tag
-* Support field name on image tag
-* Add option to check new version
-* Show related record names for all windows
-* Remove support of GTK+ 2.0
-* Add icons on Many2One in editable tree
-* Use translated values when exporting Reference and Selection fields
+* Allow field name on image tag
+* Remove unoconv and call soffice directly
+* Allow to include mixin to pool objects
+* Improve validation of PYSON domain
+* Use JSON canonical form for Dict value
+* Remove rules on user
+* Add monetary formatting to language
+* Add exceptional parent language
+* Add get method on ir.lang
+* Convert format, currency and strftime of ir.lang into instance methods
 
 Version 4.6.0 - 2017-10-30
 * Bug fixes (see mercurial logs for details)
-* Allow to export model and record name of Reference fields
-* Re-position buttons on Binary/Image widget
-* Improve treeview headers
-* Update states of both toolbar and menu
-* Improve toolbar order
-* Make readonly, required and invalid widget themable
-* Load user CSS theme
-* Use profile name or login details in title
+* Add support for Python 3.6
+* Remove support for Python 3.3
+* Move handling of sequences to the Database object
+* Allow to add tests through entry points
+* Add translated descriptor for Reference field
+* Implement alter_type and alter_size for sqlite backend
+* Add a maximum size for request
+* Add support for single record report
+* Add support for Flat OpenDocument
+* Add get_email in trytond.report
+* Replace plain extension by txt
+* Support test database cache for remote postgresql
+* Increase session randomness to 32 bytes
+* Allow to specify datetime related values in XML files
+* Add environment variables to wsgi script
+* Add unique ids check on RPC
+* Assert unique records on ModelView.button and Workflow.transition
+* Add test for function field methods
+* Add option install module dependencies with trytond-admin
+* Add localhost_name and timeout as get_smtp_server uri parameters
+* Delete missing modules not activated when updating module list
+* Remove empty pages from notebook
+* Allow to store Dict as JSON on the database
 
 Version 4.4.0 - 2017-05-01
 * Bug fixes (see mercurial logs for details)
-* Verify certificate with default CA
-* Replace URL entry by a toolbar button
+* Sanitize path in file_open against suffix (CVE-2017-0360)
+* Add constraint on user password
+* Remove Property field
+* Add MultiValueMixin and ValueMixin
+* Use sql type in column creation
+* Use generic SQL type in field and let backend determine the SQLType
+* Add filter to xxx2Many fields
+* Add NULLS ordering
+* Add context domain on ir.action.act_window
+* Allow None limit in action window
+* Add has_window_functions on Database
+* Allow Many2One on ModelSQL to target ModelStorage
+* Manage Cache in Transaction
+* Allow to register multiple exit functions on Transaction
+* Return 429 status when too many login attempts
+* Add set_rpc on Field
+* Add has_select_for on Database
+* Store custom report translation in separate module
+* Add form action keyword for set/synchronize translation on report and view
+* Add negative value for col attribute
+* Allow to use domain_<field name> method with Function fields
+* Validate wizard definition on module tests
+* Remove order constraint on register ModelSQL
+* Add relate from report to translations
 
 Version 4.2.0 - 2016-11-28
 * Bug fixes (see mercurial logs for details)
-* Add support for GTK+ 3.0
-* Add PYSON Widget
-* Show records names in wizard title
-* Add support for datetime_field to Reference
-* Show non editable widget as insensitive
-* Move info-bar at the bottom
-* Manage readonly on fields translation dialog
-* Restore tab default order when no manual change
-* Call autocompletion when setting record value
-* Remove database management
+* Add toolbar attribute for richtext widget
+* Add PYSON widget
+* Allow to define the text color and background color in calendar view
+* Allow to override cache implementation
+* Add button rule
+* Allow to specify translatable languages in trytond-admin
+* Add datetime_field on Reference
+* Merge Spanish's into Spanish (Latin American)
+* Do not check write access on model for wizard with groups
+* Add user application
+* Add sequence_ordered
+* Remove most country specific code in languages
+* Add support for derivative translations
+* Remove IDENTIFIER regexp on ir.model and ir.model.field
+* Enforce suffix and prefix to have id or name
+* Sanitize path in file_open (CVE-2016-1242)
+* Prevent read of user password hash (CVE-2016-1241)
+* Add database dump cache for tests
+* Remove unused tools: find_in_path, exec_command_pipe and mod10r
+* Implementation of drop_column for SQLite
+* Allow to pass many configuration files
+* Remove translate on field name of User
+* Allow to define the default mode in calendar view
+* Use 'default_rec_name' context key in Model.default_get
+* Add option to store Attachment in database
+* Allow to store Binary field in filestore
+* Add filestore module
+* Allow None in Greater/Less PYSON
+* Add option to set admin password with trytond-admin
+* Remove super password
+* Remove database management from RPC
+* Remove ModelView.view_header_get
+* Remove string attribute from views
+* Don't check write access on model for button with groups
 * Limit readonly state for xxx2Many
-* Show records names in relate window title
-* Add support for count on Action Window Domains
-* Manage custom login process
-* Add clear icon on Many2One
-* Re-position icons on Many2One widget
+* Add option to update modules list with trytond-admin
+* Use home directory as default path for database and web root.
+* Add count option on Action Window Domains
+* Remove window_name on Action Window
+* Return the calling keyword in ActionKeyword.get_keywords
+* Add customizable login process
+* Allow to customize the substitutions used on sequence
+* Allow PYSON in tree_invisible attribute
 
 Version 4.0.0 - 2016-05-02
 * Bug fixes (see mercurial logs for details)
-* Improvement of charts design
-* Timedelta uses 30 days for month
-* Add all available encoding for import/export
-* Add CSV parameters to export window
-* Add DnD on import window
-* Manage context model of ir.action.act_window
-* Add Note
-* Manage view_ids on tree view
-* Use Apple key for copy/past of list
+* Add sendmail module to send transactional email
+* Support Two-Phase Commit in Transaction
+* Allow Report to generate text plain, XML, HTML and XHTML
+* Add workflow graph on ir.model
+* Add context model on ir.action.act_window
+* Switch to WSGI API
+* Limit the login size in LoginAttempt
+* Remove LocalDict from tools
+* Add LRUDictTransaction
+* Follow PEP-0249 for Database, Transaction and Cursor
+* Add Python3 support
+* Make TestCase create and drop its database
+* Add with_transaction decorator for tests
+* Add note on resources
+* Add 'where' operator for xxx2many fields
+* Strip and unquote double-quote from Postgresql schema in search_path
+* Move webdav into a separate module
+* Don't read historized user when evaluating record rules as it could lead to
+  past privilege escalation.
+* Only rebuild mptt tree if left or right values have their default values
+* Allow nested inherited view
+* Add button on cron to run once
+* Check all fields when writing a sequence of records, values (CVE-2015-0861)
+* Add view_ids on tree view
+* Add parent_of operator
+* Enforce type of inheriting view
+* Use instance context in translated descriptor of Selection
 
 Version 3.8.0 - 2015-11-02
 * Bug fixes (see mercurial logs for details)
-* Use italic labels for editable fields
-* Escape '_' in button string and page string
-* Export selected records only
-* Use HTML for RichText widget
-* Change Progressbar to work with float between 0 and 1
-* Add Fast Tabbing option
-* Remove colors on widgets
-* Bold label of required fields
-* Explicit error message for invalid record
+* Add test for all field methods
+* Load po files also in 'override' subdirectory
+* Add support for float and integer on Property fields
+* Remove foreign-key on create_uid and write_uid
+* Prevent deletion of any user
+* Manage PostgreSQL schema
+* Remove colors attribute on tree view
+* Remove style on Report
+* Add StateReport to Wizard
+* Allow to override ModelSQL._table
+* Allow to import backend from entry points
 * Add reversed operators to PYSON expressions
+* Explicity raise error when creating/writing/deleting models with table_query
+* Use CURRENT_TIMESTAMP instead of now
+* Use Constraint instance in ModelSQL._sql_constraints
+* Only return default record if no domain supplied on ModelSingleton search
+* Rule.domain_get returns a domain and Rule.query_get a SQL query
+* Add target_search option to Many2One
+* Add tables argument to ModelSQL.search_domain
+* Rename ir.module.module* into ir.module*
 
 Version 3.6.0 - 2015-04-20
 * Bug fixes (see mercurial logs for details)
-* Hide columns containing always the same value
-* Remove Tabs Position option
-* Manage product attribute
+* Use bytes and bytearray for Binary
+* Add button_change
+* Add support for PyPy
+* Add support for psycopg2cffi
+* Add noeval on PYSONDecoder
+* Add __repr__ to PYSON
+* Remove safe_eval
+* Add ModelView.view_attributes
+* Add pyson attribute on data field tag
+* Changed into JSON:
+    - record rule domain
+    - trigger condition
+    - 'states', 'domain', 'spell' and 'colors' view attributes
+    - view domain
+    - 'email', 'domain', 'context', 'order' and 'search_value' action fields
+* Add product attribute on form view for One2Many
 * Remove float_time widget
 * Add TimeDelta field
-* Improve date/time widgets
-* Remove datetime widget on list/tree view
-* Allow to put many times the same field on tree view
-* Add search completion on dictionary widget
-* Merge host and port field in profile editor
-* New color scheme for graph
-* Replace img_{width,height} by width and height attributes
+* search_global yields record instead of id
+* Add ModelTestCase
+* Add test for missing default model access
+* Report API refactorization
+* Add test for access rights of menu and actions
+* Allow to use the dotted notation for order parameters
+* Use action_id to find report to use
+* Allow custom StateView without Model
+* Remove Pool.object_name_list
+* Add translated descriptor for Dict field
+* Clean private context keyword in RPC
+* Add cache section in configuration
+* Use dualmethod on ModelStorage.save
+* New API for on_change: instance changes
+* Add restore_history_before on ModelSQL
+* Remove img_{width,height} form attributes
 
 Version 3.4.0 - 2014-10-20
 * Bug fixes (see mercurial logs for details)
-* Add DnD on export window
-* Allow to overide predefined export
-* Prefill export window with current view fields
-* Manage field context on Group value
-* Add export of selection string
-* Load plugins from local user directory
-* Manage tree_state attribute
-* Add simple tree_state support on form view
-* Change range operator of search widget to be included
-* Explicitly set value of parent field
+* Use literal_eval instead of safe_eval (CVE-2014-6633)
+* Prevent double underscore in safe_eval (CVE-2014-6633)
+* Add pre-validation on button
+* Model and Field access checked only if _check_access is set
+* Add check_access to RPC
+* Add check_access to Wizard and Report
+* Add support for domain_<field name> method
+* Refactor configuration file and command line
+* Use the context of the relation field for instanciation
+* Use a configuration field for logging
+* Add translated descriptor for Selection field
+* Add tree_state attribute on tree view
+* Allow to sync XML data
+* Remove on_change calls in Model.default_get
+* Add group call to on_change
+* Add UnionMixin
+* Allow to disable sorting of dictionary field's selection
+* Add active field to views of action window
+* Make global cache depends on explicit context keys
+* Don't add to global cache Binary fields
+* Add MatchMixin
+* Add image widget to tree
+* Remove context, current_date and time from record rule evaluation
 
 Version 3.2.0 - 2014-04-21
 * Bug fixes (see mercurial logs for details)
-* Add option to show revisions
-* Add a multi selection widget for many2many
-* Remove auto-refresh
+* Add restore_history to ModelSQL
+* Add history revisions
+* Add the multi selection widget
+* Add index to one2many's on_change
+* Remove auto-refresh on Action Window
 * Add support of domain for non-relation field
-* Allow drag & drop on the attachment button
-* Replace sha widget by password
+* Manage microseconds in JSON-RPC and XML-RPC
+* Remove Sha field
+* Add password widget
 * Add Len to PYSON
-* Use a pool of connection
-* Manage client actions from button and wizard
+* Use bcrypt to hash password if possible
+* Use a sequence of ids, values to set fields
+* Client side actions on button and wizard
+* Add depends attribute to data tag
 * Add tree_invisible attribute to button in tree view
-* Add buttons of the view in actions menu
-* Don't evaluate anymore relate action with the record
-* Paste on editable list create new records if needed
 * Drop support of Python 2.6
-* Allow to search on rec_name of Reference fields
-* Use local timezone
-* Sanitize report file extension
+* Deprecate on_change, on_change_with, selection_change_with and autocomplete
+  field arguments
+* Add fields.depends decorator
+* Add run-tests
+* Validate only modified and dependant fields on model write
+* Improve error messages by showing the failing value
+* Remove relation field actions:
+    - delete_all
+    - unlink_all
+    - set
+* Rename relation field action unlink into remove
+* Use a sequence of records, values in write
+* set_context of Transaction.set_user is restricted to root
+* Add a "copy" action to One2Many and Many2Many's set method
+* Force UTC as timezone (migration script available on tryton-tools)
+* Add relation_field for many2one
 
 Version 3.0.0 - 2013-10-21
 * Bug fixes (see mercurial logs for details)
-* Add factor on number widgets
+* Allow customization of translation in po files
+* Use python-sql
+* Add convert_domain method on Fields
+* Add sql_format and sql_type methods on Fields
+* Allow to return a full domain for Function.searcher
+* Replace static backend by dynamic get method
+* Replace order_field by order_<field name> method
+* Allow field One2One in check_recursion
+* Remove the default order on MPTT
+* Add grouped attribute to data tag
+* Store selection tree state
+* Add order to Action Window
+* Add factor on number fields
 * Add calendar view
-* Add URL entry
 * Remove request
 
 Version 2.8.0 - 2013-04-22
 * Bug fixes (see mercurial logs for details)
-* Manage dynamic label
-* Manage prefix, suffix on tree view
-* Manage selection_change_with on Selection and Reference fields
-* Add Dict fields on form
-* Remove Goto
+* Allow to search on target of Reference field
+* Remove _inherits
+* Add dynamic label
+* Add prefix, suffix on tree view
+* Replace _constraints with validate in ModelStorage
+* Add selection_change_with on Selection and Reference fields
+* Add Dict fields
+* Remove unique constraint on model and field access
+* Use lists of values in create
+* (Field, Operator, Operand) are replaced by Domain on Rule
 * Add global search
-* Add toggle button for menu
-* Replace shortcuts by menu favorites
-* Move Plugins into toolbar Actions
-* Add url to list view
-* Add dynamic icon for url
-* Add completion on Many2One, Many2Many and One2Many
-* Add bookmark on search widget
-* Manage domains on Action Window
-* Use range for Date/Time fields in filter box
-* Allow multi-selection for Selection field in filter box
+* Replace view shortcut by menu favorite
+* Store default language in database
+* Add icon attribute on fields
+* Prevent Wizard State name to start with '_'
+* Add completion attribute for Many2One, Many2Many and One2Many
+* Add ViewSearch
+* Add domains on Action Window
 
 Version 2.6.0 - 2012-10-22
 * Bug fixes (see mercurial logs for details)
-* Allow to paste in editable list view
-* Manage readonly state on group
-* Remove "Please wait" box
-* Refactorize date widgets
-* Manage tuple on Reference
+* Add pre-validation
+* Allow to use XML file for views
+* Add RPC definition
+* Repace BrowseRecord by Model instance
+* Replace Cache decorator by a simple LRU Cache
+* Remove Cacheable
+* Remove _description
+* Rename _name by __name__
+* Use class in Pool
+* Fix search button clause in ModelButton.get_groups (CVE-2012-2238)
+* Merge all kind of buttons
+* Use XML id for board action instead of id
+* Add states attribute to notebook
+* Allow to use tuple for Reference
 * Add constant interpolation on line graph
-* Make Import/Export Data no-modal
-* Deactivate switch view button when there is only 1 view
-* Manage create/delete field access
+* Add create/delete field access
 * Add dynamic size limit on the One2Many, Many2Many and Char
-* Search only on fields in XML view
-* Cache action keyword
-* Always use cached views
-* Manage model access
-* Manage time format
-* Deactivate attachment button when record is not created
+* Replace __tryton__.py by tryton.cfg
+* Allow to use Reference field in One2Many & Many2Many
+* Remove hexmd5 from ModelView.fields_view_get
+* Allow client to manage model access
+* Add time format validation
+* Remove ModelSQL.default_sequence
 
 Version 2.4.0 - 2012-04-23
 * Bug fixes (see mercurial logs for details)
-* Remove workflow
-* Improve contextual menu:
-    - Actions for all relation fields on list view
-    - Use icons
-    - Add attachments entry
-* Use RPCProgress almost everywhere
-* Add a simple search box
-* New domain parser using shlex
-* Better translation dialog box
-* Add the richtext widget for WYSIWYG Editor on text fields
-* Add a record pool to prefetch more records
-* Add Time widget
-* Add support for fuzzy_translation
-* Activate save button on editing
-* Refactor set/get and set/get_client of fields
-* Display binary size alongside the buttons in treeview
-* Set correctly the focus on tab switching
-* Add shortcut to focus search entry
-* Add binary field to tree views
-* Improve board view:
-    - use the same search widget as form
-    - link double click to open popup
+* Don't allow rpc call on ModelStorage without ModelView (CVE-2012-0215)
+* Add shared WebDAV
+* Remove workflow module
+* Simplify workflow engine
+* Add ir.model.button for access rights
+* Replace fill by expand
+* Integer, Numeric and Float allow None as value
+* NULL value is None and not False
+* Replace user action by a list of actions
+* Add group call to on_change_with
+* Allow to get fuzzy translation
+* Allow to customize server timezone
+* Add richtext widget for WYSIWYG editor
+* Add support of fields.Time
+* Replace nested view by reference id
+* Remove underscore to ir.translation methods
+* Add default database language code
+* Add extras_depend to module definition
+* Store session in database
+* New Wizard design
+* Add pyson.Id
+* Use XML-RPC struct for Decimal and Date
+* Remove change_default on fields
 
 Version 2.2.0 - 2011-10-24
 * Bug fixes (see mercurial logs for details)
-* New search widget
-* Improve memory management of Binary fields
-* Support buffer for Binary fields
-* Remove delete on Escape in editable tree
-* Use JSON-RPC
-* Limit size of field when possible
-* Add xalign and yalign as fields attributes
-* Convert many popup to be no-modal
-* Add window manager for:
-    - replace current window
-    - prevent simmilar window
-* Merge and review toolbars in form and board
+* Remove name field in ir.property
+* Add wizard to show views
+* Switched from .csv to .po for translations
+* Search on Many2One fields include inactive records
+* Change select on fields into Boolean
+* Change format of search_value on ir.action.act_window
+* Manage relation field access
+* Support size format in context for Binary fields
+* Use buffer for Binary fields
+* No more store Binary fields in base64
+* Remove tabpos attribute on notebook
+* Make PYSON more Pythonic
+* Add readonly on Transaction
+* Add has_returning on Cursor
+* Remove use of python code in workflow XML
+* Use SQL sequence on PostgreSQL for ir.sequence
+* Allow to specify more than one interface
+* Use unoconv for report format conversion
+* Allow to use any Opendocument as report template
+* Drop NetRPC and activate JSON-RPC by default
+* Remove ir.action.wizard_size
+* Rename expand and fill attributes into yexpand and yfill
+* Add xalign and yalign as field attributes
 * Drop support of Python 2.5
-* Use the same design for Many2Many than One2Many
-* Allow resize columns smaller than the header
+* Remove support of Many2Many field in record XML
+* Change Pool into a Singleton
+* Remove support of zipped modules
 
 Version 2.0.0 - 2011-04-26
 * Bug fixes (see mercurial logs for details)
-* Popup form dialog has 3 buttons (close, ok, new)
-* New UI layout
-* Add DnD on tree view
+* Use md5 hash for indexing translation
 * Merge tree and list views
-* Remove generic default value on right-click
-* Made numpad locale aware
-* Selection widget used for many2one dynamically change their content following
-  the domain specification
-* Add open button on binary and image widgets
-* Hide buttons on image widget if readonly
-* Added a connection manager à la gajim
-* Fix warning in wizards
-* Added possibility to use server-side icons
-* Added additional gtk.Entry for filename on BinaryField
-* Display deleted lines in One2Many and Many2Many
-* Handle URL
-* Add communication between boards
-* Added domain inversion feature
-* Handle loading attribute on fields
-* Use default format for value in wizard form
+* Added autocompletion on fields.Char
+* Remove ir.default
+* Add type, last user and last modification on ir.attachment
+* Rename datas into data on ir.attachment
+* Add new configuration option to prevent database listing
+* Add warning to wizards
+* Add server-side icons
+* Add support for file link to BinaryField
+* Add model field access
+* Add loading attribute on fields
+* Remove priority attribute on fields
+* Model doesn't convert anymore ids for inherited methods
+* Remove required attribute on Boolean fields
 * Add One2One field
+* Add AUTOINCREMENT to sqlite primary key
 
 Version 1.8.0 - 2010-11-01
 * Bug fixes (see mercurial logs for details)
-* More fully integrate GTK menubar for Mac OS
-* Allow to configure search limit
-* Add Previous/Next on list view
-* Set non-applicable form controls in one2many view to be insensitive
+* Add timestamp sequence
+* New transaction management
+* Make _timestamp numeric instead of datetime to work with XML-RPC and JSON-RPC
+* Add ir.trigger to trigger ModelStorage change
+* Add default value to Boolean fields at database level
 
 Version 1.6.0 - 2010-05-08
 * Bug fixes (see mercurial logs for details)
-* Don't stop wizard execution when exception occurs
-* Use ir.attachment view instead of a custom one
-* Add fingerprint and CA check for SSL connection
-* Use lazy load in Import/Export windows
-* Validate record before switching view
-* Refactoring:
-    * Better naming in model
-    * Group extends list
-    * Add an index to Group
-    * New common windows for dialog of many2one, one2many and many2many
-    * one2many and many2many dialog use the same screen than the widget
-    * Reduce the number of option in Screen
-    * Remove RPCProxy to handle logout exception on every server call
-    * Better naming of event signals
-    * Fix on_change detection for many2many for issue1400
-* Add PySON to replace python string evaluation
-* Don't show "Spell Checking" option if gtkspell is not present
-* Use the same internal model for many2many and one2many fields
+* Add symbol parameter to formatLang
+* searcher on Function fields take only one domain clause as argument
+* Use a Reference field on ir.attachment to store resource informations
+  Improve the ir.attachment views to be usable on the client side
+* Use basic access authentication for XML-RPC
+* Replace child{1,2} attributes in xml views by a unique child
+* Models that uses _inherits will search in inherited parents for missing functions
+* Remove ids from on_change* calls
+* Improve search on translatable fields
+* export_data return empty value for invisible fields
+* Don't allow to use float in Numeric fields
+* set/get function on Fields take a list of ids
+* New interface for Function/Property fields
+  Take a Field as first argument instead of many separate arguments
+  Remove static arguments
+* Fix Float and Numeric for lost of precision
+* Add decimal digits validation on fields
+* Improve unittests to run trytond from tests
+  Use sqlite as default backend
+  Add skiptest attribute to data tag
+  Add option to test_tryton to run tests from all modules
+* Add MySQL backend
+* Refactoring by validation with pylint
+* Modify ondelete attribute of Many2One according to required attribute value
+* Refactor import_data of ModelStorage
+* Raise exception when search function is missing on Function fields
+* Add LRU memoization, use it to cache compiled code for safe_eval.
+* Add PySON to replace python string evaluation on client side
+* Add JSON-RPC
+* Add groups on Sequence Types and add rules on sequence based on it.
+* Ignore Fields that starts with "_"
+* Add comment on table and field for postgresql backend
 * Remove egenix-mx-base and replace it by python-dateutil
 * Add cache to safe_eval
-* Use versioned configuration directory
-* Next and Previous scroll per page on list and don't loop
-* Add AccelGroup on search windows (CTRL+Return)
-* Use same keyboard shortcut for xxx2many than for other fields
+* Rename HttpDaemon into XMLRPCDaemon
+* Improve TranslateFactory to fetch all translations for a report in one query
+* Handle displayname on webdav.collection
+* Handle current-user-privilege-set on webdav.collection
 
 Version 1.4.0 - 2009-10-19
 * Bug fixes (see mercurial logs for details)
-* Handle datetime_field in xxx2Many
-* Add new safe_eval
-* Ask previous password for set_preferences on password change
-* Add "Statusbar" option
-* Add default filename for database backup
-* Add checkbox on restore to update database
-* Add 'login.host' options to hide server connection
-* Handle required attribute with local domains
-* Allow to run wizard in tabs
-* Remove statusbar on form for more space
-* Add "Change Accelerators" option
+* Add datetime_field on xxx2Many to use a specific _datetime when reading the related record
+* Add new tool safe_eval
+* Handle sequence and history renaming when renaming table
+* Add old_password to set_preferences of res.user on password change
+* Allow to drop constraint, index and foreign key with custom table name
+* Added column_rename on TableHandler
+* Add new tool reduce_ids
+* Add limit_clause function on cursor
+* Fill the cursor cache at search
+* Allow rpc on today of ir.date
+* Use the module dependency order to apply views that inherits
+* Allow to update database at the end of restore
+* Add ir.model.access check get and set of ir.property
+* Add ModelSingleton
+* Move login test in res.user
+* Rename osv into model on workflow
+* Add logout method
+* Move BrowseRecord cache onto the cursor except for Function fields
+* Don't order search result if order value is []
+* Add reload of modules if files have changed
+* Add salt to sha of password
+* Add strftime to ir.lang to handle locale's format
+* Add sqlite backend
+* Add validate test for required and size
+* Remove _sequence on ModelSQL
 * Use gzip in pysocket
-* Use the report name to create the temporary file to open it
-* Allow to store wizard size
-* Add reset default on fields
-* Store in config default width and height of main window
-* Added arrow navigation if supported by gtk
-* Add 'starts with' and 'ends with' on char search
-* Handle domain with '=' or '!=' as operator on selection
-* Extend fields domain with local domains
-* Improve float time widget to handle year, month, week and day
-  and handle float_time attribute for contextual time convertion
+* Add gzip encoding for XML-RPC
+* Add report name in the result of Report.execute
+* Add ir.action.wizard_size to store prefered wizard size
+* Add delete_all action on One2Many field
+* Read, write, create, delete permission on record rules
+* Add reset_default method to ir.default
+* Doesn't append '%' to "like", "ilike" clauses
+* Handle database dump and restore with password
+* Add float_time attribute in fields view
 
 Version 1.2.0 - 2009-04-20
 * Bug fixes (see mercurial logs for details)
-* Make graph works also with datetime
-* Add edition on Many2Many
-* Fix open in csv export to use file actions
-* Update client labels at language change
-* Handle datetime_field in Many2One
-* Set readonly on records with _datetime in the context
-* Display values of reference fields even if there is no model
-* Allow to directly print or create email with reports
-* Handle invisible states on list view
+* Add delete of foreign keys with ondelete CASCADE
+* Add write for foreign keys with ondelete SET NULL
+* Add datetime_field on Many2One to use a specific _datetime when reading the related record
+* Use _datetime in context to read record value at specific datetime
+* Add _history_table on ModelSQL to historize change on records
+* Allow to use related fields (many2one and reference) in read
+* Use rec_name function field instead of name_get and name_search
+* Use a new Pool for objects
+* Move workflow in ModelWorkflow and the workflow module
+* Remove Service and LocalService objects
+* New netrpc/xmlrpc syntax
+* copy on ModelStorage copies one2many directly on the right record
+* Search on translated field will search only on translated value
+* Add active field on ir.action to allow better override of reports
+* Add depends attributes on Column
+* Make Modified Preorder Tree Traversal respects the default order of the model
+* Add replace_attributes for xpath tag
+* Add email parameter on report action
+* Allow to inherit views from an other model
 * Add user warnings
-* Add Model in logs
-* Allow to duplicate many records at once
+* Allow to use a list of id for copy method
+* Use one lock per database
 * Improve netrpc communication speed
-* Improve date widget to display mask only when having focus
+* Add contextual domain on inherited views
+* Allow to use globals in domain and states
+* Add translate attribute on Selection field
+* Use explicit join in search SQL query
 * Fix for host with IPv6 enable but without default IPv6 route
-* Add desktop entry
-* Add win32 single executable
 * Allow egg installation
 
 Version 1.0.0 - 2008-11-17
